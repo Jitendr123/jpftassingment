@@ -155,6 +155,11 @@ body.dark-mode .card {
   color: white;
   border-left: 6px solid var(--secondary-color);
 }
+body.dark-mode .withdraw-card {
+  background: #444;
+  color: white;
+  border-left: 6px solid var(--secondary-color);
+}
 
 body.dark-mode .card ul li {
   background: #333;

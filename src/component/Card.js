@@ -44,7 +44,7 @@ const CardView = ({ data }) => {
                 </ul>
             </div> */}
             <div className="card">
-                <table border="1" cellPadding="8" style={{ width: "100%", borderCollapse: "collapse" }}>
+                {data ? <table border="1" cellPadding="8" style={{ width: "100%", borderCollapse: "collapse" }}>
                     <tbody>
                         <tr><td><strong>Total Players:</strong></td><td>{data.totalPlayers}</td></tr>
                         <tr><td><strong>Today's User Addition:</strong></td><td>{data.todaysUserAddition}</td></tr>
@@ -63,13 +63,14 @@ const CardView = ({ data }) => {
                         <tr><td><strong>Total Admin Deposit Count:</strong></td><td>{data.totalAdminDepositCount}</td></tr>
                         <tr><td><strong>Total Admin Bonus Count:</strong></td><td>{data.totalAdminBonusCount}</td></tr>
                     </tbody>
-                </table>
+                </table> : <p>No data available</p>
+                }
             </div>
             < >
                 {/* Withdraw Data Table */}
                 <div className="withdraw-card">
                     <h2>Withdraw Data</h2>
-                    <table border="1" cellPadding="8" style={{ width: "100%", borderCollapse: "collapse" }}>
+                    {data?.withdrawData ? <table border="1" cellPadding="8" style={{ width: "100%", borderCollapse: "collapse" }}>
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -88,7 +89,8 @@ const CardView = ({ data }) => {
                                 </tr>
                             ))}
                         </tbody>
-                    </table>
+                    </table> : <p>No data available</p>
+                    }
                 </div>
             </>
         </div>

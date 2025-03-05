@@ -4,14 +4,18 @@
 This project is a **fully responsive dashboard** built using React.js. The dashboard fetches data from an API and presents it in an **intuitive UI**. Users can switch between **card view** and **analytics mode**, where numerical data is visualized using graphs and pie charts.
 
 ## What i use in React.js
-Hooks -> useState,useEffect,useContext,
-useContext use for changing the view mode Dark to Light and Light to Dark;
+Hooks -> useState,useEffect,useContext,useMemo
+
+useContext use for changing the view mode Dark to Light and Light to Dark.
+
 useState -> use for storing data in state.    
+
 useEffect -> use for calling API.
           -> added an event listener and a destroy function so that when component will unmounted even listner will also removed.
            this event listerner use to get size of screen so that i can handle label of chart.
 uses Try catch and finally block to handle error and also to free the memory.
-## API is not working some times so i set a demo object in data state so that i can work on it properly.
+i am calling API in Dashboard component and passing data to Card and Analytic component.
+## API is not working some times so i set a demo object in finally block so that i can work on it properly.
 
 ## Features
 ### 1. API Integration
@@ -19,9 +23,9 @@ uses Try catch and finally block to handle error and also to free the memory.
 - Handles API failures gracefully.
 
 ### 2. UI Components
-- **Responsive Layout:** Works across desktop, tablet, and mobile.
-
+- **Card View:**: Displays data in a card layout in tables view.
 - **Data Display:** Each key from the API is shown in a stylish, structured card.
+- **Responsive Layout:** Works across desktop, tablet, and mobile.
 - **Analytics Toggle:** Switch to enable/disable analytics mode.
 
 ### 3. Analytics Feature (Charts & Graphs)

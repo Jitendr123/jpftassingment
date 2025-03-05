@@ -158,7 +158,7 @@ const Dashboard = ({ analyticsMode }) => {
         } catch (err) {
             // setError("Failed to fetch data");
             console.log(err)
-            setData(demoData.data);//because API is not working
+            // setData(demoData.data);//because API is not working
         } finally {
             setLoading(false);
         }
