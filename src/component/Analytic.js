@@ -3,11 +3,12 @@ import { PieChart, Pie, Cell, Tooltip, AreaChart, Area, XAxis, YAxis, CartesianG
 import "../App.css";
 
 const AnalyticsView = ({ data }) => {
-    const [chartHeight, setChartHeight] = useState(window.innerWidth < 768 ? 300 : 400);
-
+    // screen will small make label in bottom
+    const [screenSmall, setScreenSmall] = useState(window.innerWidth < 768 ? true : false);
+    const chartHeight = 300;
     useEffect(() => {
         const handleResize = () => {
-            setChartHeight(window.innerWidth < 768 ? 300 : 400);
+            setScreenSmall(window.innerWidth < 768 ? true : false);
         };
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -30,61 +31,56 @@ const AnalyticsView = ({ data }) => {
         { name: "Monthly Active Users", value: data?.monthlyActiveUsers || 0, percent: ((data?.monthlyActiveUsers / totalActiveUsers) * 100).toFixed(1) }
     ], [data, totalActiveUsers]);
 
-    return (
+    return (<>
         <div className="analytics-view">
+            <h2>Analytic Mode</h2>
 
             <div className="chart-container">
                 <h3>New Users Distribution</h3>
-                <ResponsiveContainer width="100%" height={chartHeight}>
+                <ResponsiveContainer width="90%" height={chartHeight}>
                     <PieChart >
-                        <Pie data={newUsersDistribution} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} label={({ name, percent }) => `${name}: ${percent}%`}>
-                            {newUsersDistribution.map((_, index) => (
-                                <Cell key={`cell-${index}`} fill={["#8884d8", "#82ca9d", "#ffc658"][index % 3]} />
-                            ))}
-                        </Pie>
-                        <Tooltip formatter={(value, name, props) => [`${value} (${props.payload.percent}%)`, name]} />
-                    </PieChart>
-                </ResponsiveContainer >
-            </div>
-
-            <div className="chart-container">
-                <h3>New Users Distribution</h3>
-                <ResponsiveContainer width="100%" height={chartHeight}>
-                    <PieChart>
                         <Pie
                             data={newUsersDistribution}
                             dataKey="value"
                             nameKey="name"
                             cx="50%"
-                            cy="40%"  // Move PieChart a little higher
+                            cy="50%"
                             outerRadius={100}
+                            label={screenSmall ? false : (({ name, percent }) => `${name}: ${percent}%`)}
                         >
                             {newUsersDistribution.map((_, index) => (
                                 <Cell key={`cell-${index}`} fill={["#8884d8", "#82ca9d", "#ffc658"][index % 3]} />
                             ))}
                         </Pie>
-                        <Tooltip formatter={(value, name, props) => [`${value} (${(props.payload.percent * 100).toFixed(1)}%)`, name]} />
-                        <Legend verticalAlign="bottom" align="center" />
+                        <Tooltip formatter={(value, name, props) => [`${value} (${props.payload.percent}%)`, name]} />
+                        {screenSmall && <Legend verticalAlign="bottom" align="center" />}
                     </PieChart>
-                </ResponsiveContainer>
+                </ResponsiveContainer >
             </div>
-
 
             <div className="chart-container">
                 <h3>Active Users Distribution</h3>
                 <ResponsiveContainer width="100%" height={chartHeight}>
                     <PieChart width={600} height={300}>
-                        <Pie data={activeUsersDistribution} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} label={({ name, percent }) => `${name}: ${percent}%`}>
+                        <Pie
+                            data={activeUsersDistribution}
+                            dataKey="value"
+                            nameKey="name"
+                            cx="50%"
+                            cy="50%"
+                            outerRadius={100}
+                            label={ screenSmall? false: (({ name, percent }) => `${name}: ${percent}%`)}
+                        >
                             {activeUsersDistribution.map((_, index) => (
                                 <Cell key={`cell-${index}`} fill={["#ff7300", "#00c49f", "#0088fe"][index % 3]} />
                             ))}
                         </Pie>
                         <Tooltip formatter={(value, name, props) => [`${value} (${props.payload.percent}%)`, name]} />
+                        {screenSmall && <Legend verticalAlign="bottom" align="center" />}
                     </PieChart>
                 </ResponsiveContainer >
 
             </div>
-
 
             <div className="chart-container">
                 <h3>Deposits and Bonuses Comparison</h3>
@@ -104,6 +100,7 @@ const AnalyticsView = ({ data }) => {
 
             </div>
         </div>
+    </>
     );
 };
 

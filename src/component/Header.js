@@ -13,7 +13,7 @@ function Header({ analyticsMode, handleMode }) {
                         <h3>Dashboard</h3>
                     </li> */}
                     <li>Home</li>
-                    <li onClick={handleMode}><span>{analyticsMode ? "Analytics Mode" : "Card Mode"}</span></li>
+                    <li onClick={handleMode}><span>{analyticsMode ? "Card Mode" : "Analytics Mode" }</span></li>
                     <li>
                         <button className="dark-mode-toggle" onClick={toggleDarkMode}>
                             {isDarkMode ? "Light Mode" : "Dark Mode"}
