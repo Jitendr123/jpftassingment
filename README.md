@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# React.js Dashboard Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
+This project is a **fully responsive dashboard** built using React.js. The dashboard fetches data from an API and presents it in an **intuitive UI**. Users can switch between **card view** and **analytics mode**, where numerical data is visualized using graphs and pie charts.
 
-## Available Scripts
+## Features
+### 1. API Integration
+- Fetches data from: [https://jpfunware.free.beeceptor.com/dashboardData](https://jpfunware.free.beeceptor.com/dashboardData)
+- Handles API failures gracefully.
 
-In the project directory, you can run:
+### 2. UI Components
+- **Responsive Layout:** Works across desktop, tablet, and mobile.
+- **Data Display:** Each key from the API is shown in a stylish, structured card.
+- **Analytics Toggle:** Switch to enable/disable analytics mode.
 
-### `npm start`
+### 3. Analytics Feature (Charts & Graphs)
+When analytics mode is enabled, data is visualized using charts instead of cards.
+#### Charts Included:
+- **Pie Charts:**
+  - "New Users Distribution" (today, last 7 days, last 30 days).
+  - "Active Users Distribution" (daily, weekly, monthly).
+- **Area Chart:**
+  - "Deposits and Bonuses Comparison" (total deposits, admin deposits, admin bonuses).
+- Built using **recharts** or **chart.js**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 4. Functional Enhancements
+- Optimized API calls to prevent unnecessary requests.
+- Implemented error handling.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Bonus Features (Optional)
+- **Dark Mode Toggle** for improved UI experience.
+- **Smooth Transitions** when switching between views.
+- **Performance Optimization** using React’s `useMemo` and `useCallback`.
 
-### `npm test`
+## Installation & Setup
+### 1. Clone the Repository
+```sh
+git clone <repository-url>
+cd react-dashboard-assignment
+```
+### 2. Install Dependencies
+```sh
+npm install
+```
+### 3. Run the Application
+```sh
+npm start
+```
+### 4. Build for Production
+```sh
+npm run build
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Deployment
+The project is live at: [JPFT Assignment on Vercel](https://vercel.com/jitendras-projects-107fa39f/jpftassingment)
 
-### `npm run build`
+The project can also be deployed on **Vercel** or **Netlify**:
+- Deploy on **Vercel**: `vercel deploy`
+- Deploy on **Netlify**: Push to GitHub, then link with Netlify.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Submission Guidelines
+- **Upload** the project to a **GitHub repository**.
+- **Include** this README.md with setup instructions.
+- **Deploy** the project and provide a live demo link.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Evaluation Criteria
+- **Code Quality & Structure**
+- **App Responsiveness & UI/UX**
+- **API Integration & Data Handling**
+- **Functionality of Analytics Toggle**
+- **Bonus Features (if implemented)**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+### 🚀 Happy Coding & Good Luck! 🎯
