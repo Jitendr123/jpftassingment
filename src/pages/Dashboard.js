@@ -84,25 +84,81 @@ const analyticDemoData = {
     totalAdminBonusAmount: 300
 };
 
+const demoData = {
+    message: "Message delivered successfully!",
+    statusCode: 200,
+    status: "success",
+    data: {
+        totalPlayers: 14,
+        todaysUserAddition: 1,
+        lastSevenDaysUserAddition: 6,
+        lastThirtyDaysUsersAddition: 14,
+        dailyActiveUsers: 0,
+        weeklyActiveUsers: 2,
+        monthlyActiveUsers: 14,
+        totalGames: 10,
+        totalRake: 30,
+        totalPotAmount: 0,
+        totalDepositCount: 30,
+        totalDepositAmount: 40,
+        totalAdminDepositCount: 50,
+        totalAdminDepositAmount: 0,
+        totalAdminBonusCount: 0,
+        totalAdminBonusAmount: 0,
+        withdrawData: [
+            {
+                _id: "FAILED",
+                totalAmount: 400,
+                tdsAmount: 400,
+                count: 2
+            },
+            {
+                _id: "REJECTED",
+                totalAmount: 200,
+                tdsAmount: 60,
+                count: 1
+            },
+            {
+                _id: "PENDING",
+                totalAmount: 250,
+                tdsAmount: 75,
+                count: 1
+            }
+        ]
+    }
+};
+
+
 
 
 const Dashboard = ({ analyticsMode }) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [cardData, setCardData] = useState();
+    const [analyticData, setAnalyticData] = useState();
 
     useEffect(() => {
         fetchData();
     }, []);
 
-    const fetchData = async () => {
-        setLoading(true); 
+    async function fetchData() {
+        setLoading(true);
         try {
-            const response = await axios.get(API_URL);
-            setData(response.data);
+            console.log(data);
+            if (!data) {
+                const response = await axios.get(API_URL);
+                console.log(response.data);
+                if (response.data.statusCode == 200) {
+                    setData(response.data.data);
+                } else {
+                    setError(response.data.message);
+                }
+            }
         } catch (err) {
             // setError("Failed to fetch data");
             console.log(err)
+            setData(demoData.data);//because API is not working
         } finally {
             setLoading(false);
         }
@@ -110,12 +166,12 @@ const Dashboard = ({ analyticsMode }) => {
 
     return (
         <div className="dashboard-container">
-            {loading && <div className="loader">Loading</div>} 
+            {loading && <div className="loader">Loading</div>}
             {error && <p className="error-message">{error}</p>}
             {!error && !loading &&
                 <div className="toggle-container">
-                    {analyticsMode ? <AnalyticsView data={analyticDemoData}/> : 
-                        <CardView data={cardDemoData }/>}
+                    {analyticsMode ? <AnalyticsView data={data} /> :
+                        <CardView data={data} />}
                     {/* <span>{analyticsMode ? "Analytics Mode" : "Card View Mode"}</span> */}
                 </div>
             }
