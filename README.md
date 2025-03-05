@@ -54,21 +54,5 @@ npm run build
 ## Deployment
 The project is live at: [JPFT Assignment on Vercel](https://vercel.com/jitendras-projects-107fa39f/jpftassingment)
 
-The project can also be deployed on **Vercel** or **Netlify**:
-- Deploy on **Vercel**: `vercel deploy`
-- Deploy on **Netlify**: Push to GitHub, then link with Netlify.
-
-## Submission Guidelines
-- **Upload** the project to a **GitHub repository**.
-- **Include** this README.md with setup instructions.
-- **Deploy** the project and provide a live demo link.
-
-## Evaluation Criteria
-- **Code Quality & Structure**
-- **App Responsiveness & UI/UX**
-- **API Integration & Data Handling**
-- **Functionality of Analytics Toggle**
-- **Bonus Features (if implemented)**
-
 ---
 ### 🚀 Happy Coding & Good Luck! 🎯
