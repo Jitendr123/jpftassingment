@@ -4,14 +4,16 @@ import Dashboard from './Dashboard'
 
 function Home() {
     const [analyticsMode, setAnalyticsMode] = useState(false);
-    // console.log('hi')
+    const [callApi, setCallApi] = useState(true);
+
+
     function handleMode() {
         setAnalyticsMode((prevMode) => !prevMode);
     }
     return (
         <>
-            <Header analyticsMode={analyticsMode} handleMode={handleMode} />
-            <Dashboard analyticsMode={analyticsMode} />
+            <Header analyticsMode={analyticsMode} handleMode={handleMode} callApi={callApi} setCallApi={setCallApi} />
+            <Dashboard analyticsMode={analyticsMode} callApi={callApi} setCallApi={setCallApi} />
         </>
     )
 }
