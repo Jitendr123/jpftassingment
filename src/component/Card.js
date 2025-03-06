@@ -43,7 +43,7 @@ const CardView = ({ data }) => {
                     ))}
                 </ul>
             </div> */}
-            <div className="card">
+            <div className="card1">
                 {data ? <table border="1" cellPadding="8" style={{ width: "100%", borderCollapse: "collapse" }}>
                     <tbody>
                         <tr><td><strong>Total Players:</strong></td><td>{data.totalPlayers}</td></tr>

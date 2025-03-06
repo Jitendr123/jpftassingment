@@ -3,7 +3,8 @@ import axios from "axios";
 import "../App.css";
 import AnalyticsView from "../component/Analytic";
 import CardView from "../component/Card";
-import $ from "jquery";
+// import $ from "jquery";
+        
 
 const API_URL = "https://jpfunware.free.beeceptor.com/dashboardData";
 const cardDemoData = [
@@ -102,7 +103,7 @@ const Dashboard = ({ analyticsMode, callApi, setCallApi }) => {
     }, []);
 
     async function fetchData() {
-        $(".loader").show();
+        // $(".loader").show();
         setLoading(true);
         try {
             // console.log(data);
@@ -119,9 +120,10 @@ const Dashboard = ({ analyticsMode, callApi, setCallApi }) => {
         } catch (err) {
             // setError("Failed to fetch data");
             setCallApi(false);
+            setData(demoData.data);//if API will not work then use demo data
             console.log(err)
         } finally {
-            $(".loader").hide();
+            // $(".loader").hide();
             setLoading(false);
         }
     };
@@ -130,7 +132,11 @@ const Dashboard = ({ analyticsMode, callApi, setCallApi }) => {
 
     return (
         <div className="dashboard-container">
-            {/* {loading && <div className="loader">Loading</div>} */}
+            {loading && 
+                <div className="spinner-border text-success" role="status">
+                    {/* <span class="sr-only">Loading...</span> */}
+                </div>
+            }
             {error && <p className="error-message">{error}</p>}
             {!error && !loading &&
                 <div className="toggle-container">
