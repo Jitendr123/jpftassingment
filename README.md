@@ -15,7 +15,11 @@ useEffect -> use for calling API.
            this event listerner use to get size of screen so that i can handle label of chart.
 uses Try catch and finally block to handle error and also to free the memory.
 i am calling API in Dashboard component and passing data to Card and Analytic component.
-## API is not working some times so i set a demo object in finally block so that i can work on it properly.
+
+Bootstrap -> used Bootstrap loader in it.
+
+
+##There is Demo data btn in Header component and it will visible only when API is not working.
 
 ## Features
 ### 1. API Integration
