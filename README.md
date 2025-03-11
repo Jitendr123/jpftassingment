@@ -74,5 +74,7 @@ npm run build
 ## Deployment
 The project is live at: [JPFT Assignment on Vercel](https://jpftassingment.vercel.app/)
 
+Github Repo Link [Github Link](https://github.com/Jitendr123/jpftassingment/tree/main) 
+
 ---
 ### 🚀 Happy Coding & Good Luck! 🎯

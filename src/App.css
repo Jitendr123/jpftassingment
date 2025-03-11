@@ -119,6 +119,7 @@ body.dark-mode {
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-left: 6px solid var(--primary-color);
+  background: linear-gradient(45deg, #2aee08, #0000003b);
 }
 
 .card1 h3 {
